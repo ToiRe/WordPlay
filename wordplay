@@ -1,0 +1,97 @@
+import edu.duke.*;
+import org.apache.commons.csv.*;
+/**
+ * Write a description of class WordPlay here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class WordPlay
+{
+    public boolean isVowel(char ch)
+  {
+      ch = 'F';
+      if(ch == 'a'|| ch == 'e'|| ch == 'i'|| ch =='o'|| ch == 'u'|| ch == 'A'||
+      ch == 'E'|| ch == 'I'|| ch == 'O'|| ch == 'U')
+      {
+         return true; 
+        }
+        return false;
+    }
+  public void testisvowel()
+  {
+     System.out.println("isVowel('F') should return false: " + isVowel('F')); 
+          System.out.println("isVowel(a') should return true: " + isVowel('a')); 
+    }
+  public void testCaesar()
+    {
+     int key = 17;   
+    }
+  public String replaceVowels(String phrase, char ch)
+  {
+    StringBuilder newString = new StringBuilder(phrase);
+    for(int i = 0; i < phrase.length(); i++)
+     {
+         if(isVowel(newString.charAt(i))) 
+         {
+             newString.setCharAt(i,ch);
+            }
+        }
+    return newString.toString();
+    }
+  public String encrypt(String input, int key)
+  {
+     StringBuilder encrypted = new StringBuilder (input);
+     String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+     String shiftedAlphabet = alphabet.substring(key) + alphabet.substring(0, key);
+     for(int i=0; i < encrypted.length(); i++)
+     {
+         char currChar = encrypted.charAt(i);
+         int idx = alphabet.indexOf(currChar);
+         if(idx != -1)
+         {
+             char newChar = shiftedAlphabet.charAt(idx);
+             encrypted.setCharAt(i, newChar);
+            }
+        }
+     return encrypted.toString();
+    }
+  public void testReplaceVowels()
+  {
+     System.out.println("replaceVowels(Hello World, '*')");
+     System.out.println("should returns the string Hello World;");
+     System.out.println(replaceVowels("How are you?", '%'));
+    }
+  public String emphasize(String phrase, char ch)
+  {
+      StringBuilder replaced = new StringBuilder(phrase);
+      for(int i = 0; i < replaced.length(); i++)
+      {
+         if(i % 2 == 00) 
+         {
+             replaced.setCharAt(i, '*');
+            }
+         else
+         {
+             replaced.setCharAt(i, '+');
+            }
+        }
+      return replaced.toString();
+    }
+  public void testEmphasize()
+  {
+     System.out.println(emphasize("dna ctgaaactga",'a'));
+     System.out.println(emphasize("Mary Bella Abracadabra", 'a'));
+    }
+  //public Stringbuilder emphasize(StringBuilder phrase, char ch)
+  {
+     //for(int i = 0; i < phrase.length(); i++)
+     {
+     //char str = phrase.charAt(i);
+     //if(str == ch)
+     {
+     //if(i%2==0; phrase.setCharAt(i, '*');    
+        }
+    }
+  }
+}
